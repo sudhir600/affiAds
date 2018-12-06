@@ -1,5 +1,7 @@
 # affiAds
-Manage multiple affiliate code dynamically without affecting AdSense. 
+1. Manage multiple affiliate code dynamically without affecting AdSense. 
+2. Affliate code will load once your page has been loaded..so site perfomace will not reduced.
+3. it will automactly refresh your ads in timeInterval (based on yor time setting), <i>(By doing this impression and click will be increase.)</i>
 
 <h2>Just add below html tag whereever you want add to be appear</h2>
 
