@@ -1,4 +1,4 @@
-var ad = {
+let ad = {
     "header": [
 			'A',
 			'B',
@@ -18,63 +18,48 @@ var ad = {
 			'II3'
 	],
 	"others": [],
-	
 }
-
-var affStartTime = 500;
-var intervalTime = 2000;
-var reAttemptTime = 1000;
-var $j = jQuery;
-fillAds();
+let affStartTime = 500
+let intervalTime = 2000
+let reAttemptTime = 1000
 
 function fillAds(){
-	var $j = jQuery;
+	   let $j = jQuery
 	  $j('.aff').each(function(e){
-		var affCat = $j(this).attr('rel'); 
-		var adCode = fetchAd(affCat);
-		$j(this).fadeOut(3000).html('').html(adCode).fadeIn(5000);
+		let affCat = $j(this).attr('rel')
+		let adCode = fetchAd(affCat)
+		$j(this).fadeOut(3000).html('').html(adCode).fadeIn(5000)
 	  });
 }
 
-
 function fetchAd(category) {
-	ad = clean(ad);
-	var categories = Object.keys(ad)
-	var totalCategory = Object.keys(ad).length;
-	var catId = rand(totalCategory); //index start form 0
-	var isCategoryExits = ad[category];
-		
+	ad = clean(ad)
+	let categories = Object.keys(ad)
+	let totalCategory = Object.keys(ad).length
+	let catId = rand(totalCategory)
+	let isCategoryExits = ad[category]
 	if (category == undefined || category == '' || isCategoryExits == undefined) {
-		category = categories[catId];
-	};
+		category = categories[catId]
+	}
+	let selectedAdsArr = ad[category]
+	let totalAdsInCategory = selectedAdsArr.length
+	let randomAdCode = selectedAdsArr[rand(totalAdsInCategory)]
 	
-	var selectedAdsArr = ad[category];
-	var totalAdsInCategory = selectedAdsArr.length;
-	var randomAdCode = selectedAdsArr[rand(totalAdsInCategory)];
-	c(randomAdCode);
-	return randomAdCode;
-	
+	return randomAdCode
 }
 
-
 function rand(max) {
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max)
 }					
 
 function clean(obj) {
   Object.keys(obj).forEach(function(key) {
     if (obj[key] === undefined || obj[key] === null || obj[key].length <= 0) {
-      delete obj[key];
+      delete obj[key]
     }
   })
-  return obj;
+  return obj
 }
 
-
-
-
-
-
-function c(a){
-	console.log(a);
-}
+//excute
+fillAds()
